@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private GameObject playerKnife;
+    [SerializeField] private GameObject playerKnife; // sets the playerknife to an actual game obejct
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerInput playerInput;
@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     {
         playerKnife.SetActive(false);
     }
+
+
     public void OnMove(InputValue input)
     {
         moveInput = input.Get<Vector2>();

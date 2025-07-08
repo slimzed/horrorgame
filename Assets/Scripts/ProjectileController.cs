@@ -17,10 +17,6 @@ public class ProjectileController : MonoBehaviour
         rb.linearVelocityX = Random.Range(-1f, 1f);
         objCollider.enabled = false; // temporarily disables upon awaken
         Invoke("EnableCollider", SpawnProtection); //xz waits 1 second before reenabling collider
-        if (gameObject)
-        {
-            Debug.Log(gameObject.name);
-        }
 
     }
 
