@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        // StatTracker.OnGameOver += HandleGameOver;
+        StatTracker.OnGameOver += HandleGameOver;
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     void Restart()
     {
         gameObject.SetActive(true);
-        // StatTracker.Instance.SetLives(5);
+        StatTracker.Instance.SetLives(5);
     }
 
 }

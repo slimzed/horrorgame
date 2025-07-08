@@ -25,10 +25,10 @@ public class StatTracker : MonoBehaviour
     {
         playerLives--;
         UpdateUI();
-        if (playerLives == 0)
+        if (playerLives <= 0)
         {
-            OnGameOver.Invoke();
-            Invoke("UpdateUI", 2f); // updates ui after 2 seconds/player respawn, kinda buns handling
+            OnGameOver.Invoke(); // invokes a global event that the game has ended
+            Invoke("UpdateUI", 2f); // CHANGE THIS LATER SO THAT SOMETHING HAPPENS
         }
     }
 
@@ -42,7 +42,7 @@ public class StatTracker : MonoBehaviour
     }
     private void UpdateUI()
     {
-        // livesText.text = "Player Lives: " + playerLives;
+        livesText.text = "Player Lives: " + playerLives;
         // once sprites are created, iterate over the number of lives and create independent life icons or whatever
     }
 
