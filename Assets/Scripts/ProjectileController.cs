@@ -14,6 +14,7 @@ public class ProjectileController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         objCollider = GetComponent<Collider2D>();
         rb.linearVelocityY = -3f;
+        rb.linearVelocityX = Random.Range(-1f, 1f);
         objCollider.enabled = false; // temporarily disables upon awaken
         Invoke("EnableCollider", SpawnProtection); //xz waits 1 second before reenabling collider
 
@@ -40,6 +41,10 @@ public class ProjectileController : MonoBehaviour
         {
             Destroy(gameObject);
             // actual health handling is done within the enemy object itself
+        } else if (collision.CompareTag("Player"))
+        {
+            StatTracker.Instance.SubtractLives();
+            Destroy(gameObject);
         }
     }
     private void EnableCollider()

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private GameObject playerKnife;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerInput playerInput;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerInput.actions.Enable();
+        playerKnife.SetActive(false);
     }
     private void OnEnable()
     {
@@ -21,8 +23,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
+        
     }
-
+    public void OnAttack() // function called when LeftClick is pressed.
+    {
+        playerKnife.SetActive(true);
+        Invoke("HideKnife", 1f); // hides knife after 1s
+    }
+    private void HideKnife()
+    {
+        playerKnife.SetActive(false);
+    }
     public void OnMove(InputValue input)
     {
         moveInput = input.Get<Vector2>();
