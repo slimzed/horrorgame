@@ -34,6 +34,7 @@ public class EnemyHitbox : MonoBehaviour
                 spriteRenderer.color = Color.yellow;
                 // spriteRenderer.sprite = stage1;
                 Destroy(gameObject);
+                
                 // load into the menu where you can pick power boost or whatever
             }
         }
