@@ -172,10 +172,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7655463754024124327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66e85f5cdae2ed547be83d4769f00eb4, type: 3}
+  m_Script: {fileID: 11500000, guid: c6f23f42c1db82641b19ea89addbeb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 67449094775238323, guid: bf00cbb9313b2b74ebf2ff731db4b109, type: 3}
-  childContainer: {fileID: 1344846424963377196, guid: d622053796426af4692ca9c648ffb1e2, type: 3}
+  ball: {fileID: 67449094775238323, guid: 0abbc7a18a0f0f64f8b5fa8405656263, type: 3}
+  childContainer: {fileID: 0}
+  enemyHitbox: {fileID: 2743513748992061440, guid: 2651494d8b1ec7d4ab7585824325d942, type: 3}
   spawnInterval: 2
   initialDelay: 1
+  minX: 0
+  maxX: 0
