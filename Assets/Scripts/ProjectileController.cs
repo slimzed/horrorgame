@@ -41,6 +41,10 @@ public class ProjectileController : MonoBehaviour
         {
             Destroy(gameObject);
             // actual health handling is done within the enemy object itself
+        } else if (collision.CompareTag("Player"))
+        {
+            StatTracker.Instance.SubtractLives();
+            Destroy(gameObject);
         }
     }
     private void EnableCollider()
