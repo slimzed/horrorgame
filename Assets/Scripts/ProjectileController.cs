@@ -17,13 +17,17 @@ public class ProjectileController : MonoBehaviour
         rb.linearVelocityX = Random.Range(-1f, 1f);
         objCollider.enabled = false; // temporarily disables upon awaken
         Invoke("EnableCollider", SpawnProtection); //xz waits 1 second before reenabling collider
+        if (gameObject)
+        {
+            Debug.Log(gameObject.name);
+        }
 
     }
 
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Respawn"))
+        if (gameObject != null && collision.CompareTag("Respawn"))
         {
             Destroy(gameObject);
             if (StatTracker.Instance != null)
@@ -37,14 +41,14 @@ public class ProjectileController : MonoBehaviour
             }
 
         }
-        else if (collision.CompareTag("Enemy")) // activates if projectile enters the enemy hitbox 
+        else if (gameObject != null && collision.CompareTag("Enemy")) // activates if projectile enters the enemy hitbox 
         {
             Destroy(gameObject);
             // actual health handling is done within the enemy object itself
         } else if (collision.CompareTag("Player"))
         {
-            StatTracker.Instance.SubtractLives();
             Destroy(gameObject);
+            StatTracker.Instance.SubtractLives();
         }
     }
     private void EnableCollider()

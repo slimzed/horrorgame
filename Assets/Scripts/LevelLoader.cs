@@ -12,10 +12,10 @@ public class LevelLoader : MonoBehaviour
 
     private void LoadEndScreen()
     {
-        SceneManager.LoadScene("GameOverScreen");
+        // SceneManager.LoadScene("GameOverScreen");
     }
     public void LoadGame()
     {
-        SceneManager.LoadScene("SampleScene"); // change this once you rename the actual scene
+        // SceneManager.LoadScene("SampleScene"); // change this once you rename the actual scene
     }
 }

@@ -31,6 +31,7 @@ public class StatTracker : MonoBehaviour
             Invoke("UpdateUI", 2f); // updates ui after 2 seconds/player respawn, kinda buns handling
         }
     }
+
     public int GetLives()
     {
         return playerLives;
@@ -41,7 +42,7 @@ public class StatTracker : MonoBehaviour
     }
     private void UpdateUI()
     {
-        livesText.text = "Player Lives: " + playerLives;
+        // livesText.text = "Player Lives: " + playerLives;
         // once sprites are created, iterate over the number of lives and create independent life icons or whatever
     }
 
