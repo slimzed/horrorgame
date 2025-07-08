@@ -1346,6 +1346,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1667325510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6584038544555686970, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
+  m_PrefabInstance: {fileID: 5254713684700475032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1850869048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3672312948502758743, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
+      propertyPath: playerKnife
+      value: 
+      objectReference: {fileID: 1667325510}
     - target: {fileID: 4882686991321390522, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
       propertyPath: m_BodyType
       value: 0
