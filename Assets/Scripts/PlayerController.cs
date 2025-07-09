@@ -12,18 +12,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float KnifeShownTime = 1f;
     [Tooltip("This decides how long the animation will take for the knife.")]
     [SerializeField] private float KnifeAnimationTime = 0.1f;
+    [SerializeField] private Sprite leftSprite;
+    [SerializeField] private Sprite rightSprite;
+    [SerializeField] private Sprite midSprite;
+    
+    
+    
+    
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerInput playerInput;
     private Vector3 playerKnifeTransformLocal; // creates a vector3 that is local (in regards to) the whole player object
-
+    private SpriteRenderer spriteRenderer;
 
     private float lastInputTime;
     
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if (leftSprite == null)
+        {
+            Debug.LogWarning("leftSprite is not set.");
+        }
+        if (rightSprite == null)
+        {
+            Debug.LogWarning("rightSprite is not set.");
+        }
+
+
+            rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         playerInput.actions.Enable();
         playerKnife.SetActive(false);
@@ -90,16 +107,24 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue input)
     {
         moveInput = input.Get<Vector2>();
+        if (leftSprite != null  && moveInput.x > 0)
+        {
+            spriteRenderer.sprite = leftSprite;
+        } else if (rightSprite != null && moveInput.x < 0)
+        {
+            spriteRenderer.sprite = rightSprite;
+        } else if (midSprite != null && moveInput.x == 0)
+        {
+            spriteRenderer.sprite = midSprite;
+        }
     }
 
     void HandleGameOver()
     {
-        gameObject.SetActive(false);
-
-        Invoke("Restart", 2f);
-        
-
+        StatTracker.Instance.SubtractLives(); // subtracts a life and triggers GameOver if lives == 0
+        gameObject.SetActive(false); // optional: disable player for a second
     }
+
 
     void Restart() // change this function later so that it actually does something important
     {

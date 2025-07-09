@@ -1,17 +1,14 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StatTracker : MonoBehaviour
 {
-    public static StatTracker Instance { get; private set; } // creates a singleton instance so that I can access this within other scripts
-    public static event Action OnGameOver; // creates a public action trigger that activates when the player is dead
-
+    public static StatTracker Instance { get; private set; } // Singleton instance
+    public static event Action OnGameOver; // Event triggered when player dies
 
     [SerializeField] private TextMeshProUGUI livesText;
-
-
-
 
     private int playerLives = 5;
 
@@ -25,10 +22,10 @@ public class StatTracker : MonoBehaviour
     {
         playerLives--;
         UpdateUI();
+
         if (playerLives <= 0)
         {
-            OnGameOver.Invoke(); // invokes a global event that the game has ended
-            Invoke("UpdateUI", 2f); // CHANGE THIS LATER SO THAT SOMETHING HAPPENS
+            OnGameOver?.Invoke(); // Safely trigger Game Over event
         }
     }
 
@@ -36,24 +33,29 @@ public class StatTracker : MonoBehaviour
     {
         return playerLives;
     }
+
     public void SetLives(int lives)
     {
         playerLives = lives;
+        UpdateUI();
     }
+
     private void UpdateUI()
     {
-        livesText.text = "Player Lives: " + playerLives;
-        // once sprites are created, iterate over the number of lives and create independent life icons or whatever
+        if (livesText != null)
+        {
+            livesText.text = "Player Lives: " + playerLives;
+        }
     }
 
-
-
+    // Optional: only use this if you're tracking enemy or player health separately
     public void SubtractHealth(int health, GameObject obj)
     {
         health--;
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(obj);
+            OnGameOver?.Invoke(); 
         }
     }
 }

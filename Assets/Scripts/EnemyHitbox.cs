@@ -14,8 +14,6 @@ public class EnemyHitbox : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collider)
     {
         Destroy(collider.gameObject);
-        Debug.Log("collided");
-        Debug.Log(health);
         if (collider.transform.CompareTag("Projectile")) // checks if the collided object is a projectile
         {
             health--;
