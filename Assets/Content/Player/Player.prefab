@@ -180,7 +180,8 @@ MonoBehaviour:
   moveSpeed: 5
   playerKnife: {fileID: 0}
   KnifeDebounceTime: 0.5
-  KnifeHideTime: 1
+  KnifeShownTime: 1
+  KnifeAnimationTime: 0.1
 --- !u!114 &4027707617712208751
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
@@ -25,10 +26,10 @@ public class ProjectileController : MonoBehaviour
     {
         if (gameObject != null && collision.CompareTag("Respawn"))
         {
-            Destroy(gameObject);
             if (StatTracker.Instance != null)
             {
                 StatTracker.Instance.SubtractLives();
+                Destroy(gameObject);
             }
             else
             {
@@ -38,11 +39,12 @@ public class ProjectileController : MonoBehaviour
         }     
         else if (collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            // play explosion animatino here 
+            PlayerVisuals playerVisuals = collision.gameObject.GetComponent<PlayerVisuals>();
+            playerVisuals.FlashRedTemporarily(0.25f, gameObject);
             StatTracker.Instance.SubtractLives();
         }
     }
+   
     private void EnableCollider()
     {
         objCollider.enabled = true;
