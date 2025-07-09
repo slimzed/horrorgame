@@ -43,7 +43,15 @@ public class ProjectileController : MonoBehaviour
             StatTracker.Instance.SubtractLives();
         }
     }
-   
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Respawn"))
+        {
+            Destroy(gameObject); // destroys the object when it hits walls also, but walls aren't a trigger because i need them to have collisions with the player object
+        }
+    }
+
     private void EnableCollider()
     {
         objCollider.enabled = true;
