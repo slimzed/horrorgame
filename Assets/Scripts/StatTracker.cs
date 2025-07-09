@@ -15,8 +15,11 @@ public class StatTracker : MonoBehaviour
     {
         Instance = this;
         UpdateUI();
+        EnemyHitbox.AddEnemy += AddTargets;
+        EnemyHitbox.RemoveEnemy += RemoveTargets;
     }
     private int Remaining = 0;
+   
     public void AddTargets() 
     {
         Remaining++;
