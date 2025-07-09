@@ -13,7 +13,7 @@ public class StatTracker : MonoBehaviour
 
 
 
-    private int playerLives = 5;
+    private int playerLives = 100;
 
     private void Awake()
     {
