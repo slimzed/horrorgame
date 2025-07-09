@@ -10,9 +10,10 @@ public class LevelLoader : MonoBehaviour
         StatTracker.OnGameOver += LoadEndScreen; // ties the end screen loading to the OnGameOver event in StatTracker
     }
 
-    private void LoadEndScreen()
+    public void LoadEndScreen()
     {
-        // SceneManager.LoadScene("GameOverScreen");
+        Debug.Log("screen end called");
+        SceneManager.LoadScene("GameOverScreen");
     }
     public void LoadGame()
     {

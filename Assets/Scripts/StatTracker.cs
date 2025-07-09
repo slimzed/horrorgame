@@ -42,7 +42,7 @@ public class StatTracker : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (livesText != null)
+        if (livesText != null && playerLives > 0)
         {
             livesText.text = "Player Lives: " + playerLives;
         }

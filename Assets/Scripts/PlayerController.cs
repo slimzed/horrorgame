@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -121,8 +122,9 @@ public class PlayerController : MonoBehaviour
 
     void HandleGameOver()
     {
-        StatTracker.Instance.SubtractLives(); // subtracts a life and triggers GameOver if lives == 0
+        Debug.Log("Game over...");
         gameObject.SetActive(false); // optional: disable player for a second
+
     }
 
 
