@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class EnemyHitbox : MonoBehaviour
 {
@@ -6,9 +7,12 @@ public class EnemyHitbox : MonoBehaviour
     [SerializeField] private Sprite stage2;
     [SerializeField] private Sprite stage1;
     private SpriteRenderer spriteRenderer;
+    public static event Action AddEnemy;
+    public static event Action RemoveEnemy;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        AddEnemy?.Invoke();
     }
 
     private void OnCollisionEnter2D(Collision2D collider)
@@ -20,7 +24,7 @@ public class EnemyHitbox : MonoBehaviour
             if (health == 0)
             {
                 gameObject.SetActive(false); // toggles off the hitbox when killed, could also be Destroy()
-
+                RemoveEnemy?.Invoke();
                 // loads into next scene or in between screen
             }
             else if (health <= 4)
@@ -32,6 +36,7 @@ public class EnemyHitbox : MonoBehaviour
             {
                 spriteRenderer.color = Color.yellow;
                 // spriteRenderer.sprite = stage1;
+
                 Destroy(gameObject);
                 
                 // load into the menu where you can pick power boost or whatever

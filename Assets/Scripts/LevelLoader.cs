@@ -8,6 +8,7 @@ public class LevelLoader : MonoBehaviour
     {
 
         StatTracker.OnGameOver += LoadEndScreen; // ties the end screen loading to the OnGameOver event in StatTracker
+        StatTracker.OnLevelWin += LoadNextScreen; // ties the end screen loading to the OnGameOver event in StatTracker
     }
 
     public void LoadEndScreen()
@@ -23,5 +24,8 @@ public class LevelLoader : MonoBehaviour
     public void LoadTutorial()
     {
         SceneManager.LoadScene("TutorialScene");
+    public void LoadNextScreen()
+    {
+        SceneManager.LoadScene("Win Screen");
     }
 }

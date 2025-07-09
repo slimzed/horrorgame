@@ -6,7 +6,7 @@ public class StatTracker : MonoBehaviour
 {
     public static StatTracker Instance { get; private set; } // Singleton instance
     public static event Action OnGameOver; // Event triggered when player dies
-
+    public static event Action OnLevelWin;
     [SerializeField] private TextMeshProUGUI livesText;
 
     private int playerLives = 5;
@@ -15,8 +15,23 @@ public class StatTracker : MonoBehaviour
     {
         Instance = this;
         UpdateUI();
+        EnemyHitbox.AddEnemy += AddTargets;
+        EnemyHitbox.RemoveEnemy += RemoveTargets;
     }
-
+    private int Remaining = 0;
+   
+    public void AddTargets() 
+    {
+        Remaining++;
+    }
+    public void RemoveTargets()
+    {
+        Remaining--;
+        if (Remaining == 0) 
+        {
+            OnLevelWin?.Invoke();
+        }
+    }
     public void SubtractLives()
     {
         playerLives--;

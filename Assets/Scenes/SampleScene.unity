@@ -2387,6 +2387,14 @@ PrefabInstance:
       propertyPath: playerKnife
       value: 
       objectReference: {fileID: 911435257}
+    - target: {fileID: 3672312948502758743, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
+      propertyPath: KnifeShownTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672312948502758743, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
+      propertyPath: KnifeDebounceTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4882686991321390522, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
       propertyPath: m_Mass
       value: 1000000
