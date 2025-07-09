@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,11 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private GameObject playerKnife; // sets the playerknife to an actual game obejct
+    [Tooltip("This decides how long the wait will be between successive parries")]
     [SerializeField] private float KnifeDebounceTime = 0.5f; // sets the debounce on the knife input
-    [SerializeField] private float KnifeHideTime = 1f;
+    [Tooltip("This decides how long the knife will be shown")]
+    [SerializeField] private float KnifeShownTime = 1f;
+    [Tooltip("This decides how long the animation will take for the knife.")]
+    [SerializeField] private float KnifeAnimationTime = 0.1f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private PlayerInput playerInput;
+    private Vector3 playerKnifeTransformLocal; // creates a vector3 that is local (in regards to) the whole player object
 
 
     private float lastInputTime;
@@ -22,6 +28,10 @@ public class PlayerController : MonoBehaviour
         playerInput.actions.Enable();
         playerKnife.SetActive(false);
         lastInputTime = -KnifeDebounceTime; // just set it to a random small value so that first input will always occur :D
+
+        playerKnifeTransformLocal = playerKnife.transform.localPosition;
+
+
     }
     private void OnEnable()
     {
@@ -35,17 +45,45 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAttack() // function called when LeftClick is pressed.
     {
-        if (Time.time - lastInputTime >= KnifeDebounceTime + KnifeHideTime)
+        if (Time.time - lastInputTime >= KnifeDebounceTime + KnifeShownTime)
         {
             lastInputTime = Time.time;
-            Debug.Log("input registered");
             playerKnife.SetActive(true);
-            Invoke("HideKnife", KnifeHideTime); // hides knife after 1s
+            StartCoroutine(moveKnife()); // this will start a coroutine and yield any further action until the coroutine is finished 
         }
     }
+    /// <summary>
+    /// This function is a little confusing so I'll explain it here. Essentially what we are doing is creating a coroutine (a function that can CHOOSE when to return) and 
+    /// using this coroutine to lerp the knife animation over time. This basically gives the script some time to play the knife animation, otherwise it would simply 
+    /// teleport. Further, we are using the playerKnifeTransformLocal to store the knife's x value respective to the player, ensuring that the knife is tracking the player at all 
+    /// times because it is moving RESPECTIVE TO the player. 
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator moveKnife()
+    {
+        Vector3 startPos = new Vector3(playerKnifeTransformLocal.x, playerKnife.transform.localPosition.y, playerKnife.transform.localPosition.z);
+        Vector3 endPos = new Vector3(playerKnifeTransformLocal.x, playerKnifeTransformLocal.y + 0.5f, playerKnifeTransformLocal .z);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < KnifeAnimationTime)
+        {
+            Vector3 interpolatedPos = Vector3.Lerp(startPos, endPos, elapsedTime / KnifeAnimationTime);
+
+            playerKnife.transform.localPosition = new Vector3(playerKnifeTransformLocal.x, interpolatedPos.y, interpolatedPos.z); // makes sure that the object is STILL the same x position local, but is interpolating both y and z
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        playerKnife.transform.localPosition = new Vector3(playerKnifeTransformLocal.x, endPos.y, endPos.z);
+
+        yield return new WaitForSeconds(KnifeShownTime); // currently just made it a random value, this is how long the knife will be shown for before hiding 
+
+        HideKnife();
+    }
+
     private void HideKnife()
     {
         playerKnife.SetActive(false);
+        playerKnife.transform.localPosition = playerKnifeTransformLocal; // makes sure that the knife 
     }
 
 

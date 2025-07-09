@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Unity.Collections;
 using UnityEngine;
 
@@ -20,12 +21,15 @@ public class BallSpawner : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         minX = spriteRenderer.bounds.min.x + 1f;
         maxX = spriteRenderer.bounds.max.x - 1f;
+        
+        
         InvokeRepeating("SpawnObject", initialDelay, spawnInterval);
     }
 
     private void SpawnObject()
     {
-        if (ball)
+        int shouldSpawn = Random.Range(0, 2); // randomly picks a number from 0 to 1 as to whether the ball spawner should spawn an objects
+        if (ball && shouldSpawn == 1)
         {
             float xPos = Random.Range(minX, maxX);
             Vector3 worldPos = new Vector3(xPos, enemyHitbox.position.y, childContainer.position.z);
@@ -36,6 +40,9 @@ public class BallSpawner : MonoBehaviour
                 Debug.LogWarning("childContainer is out of scale");
             }
         }
+
+
+
     }
 
 }

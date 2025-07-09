@@ -17,7 +17,6 @@ public class EnemyHitbox : MonoBehaviour
         if (collider.CompareTag("Projectile")) // checks if the collided object is a projectile
         {
             health--;
-            Debug.Log(health);
             if (health == 0)
             {
                 gameObject.SetActive(false); // toggles off the hitbox when killed, could also be Destroy()

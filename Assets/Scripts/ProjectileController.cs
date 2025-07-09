@@ -29,7 +29,6 @@ public class ProjectileController : MonoBehaviour
             if (StatTracker.Instance != null)
             {
                 StatTracker.Instance.SubtractLives();
-                Debug.Log(StatTracker.Instance.GetLives().ToString());
             }
             else
             {
