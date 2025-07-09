@@ -13,7 +13,7 @@ public class EnemyHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("collision");
+        Destroy(collider.gameObject);
         if (collider.CompareTag("Projectile")) // checks if the collided object is a projectile
         {
             health--;

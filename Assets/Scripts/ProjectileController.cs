@@ -36,14 +36,11 @@ public class ProjectileController : MonoBehaviour
                 Debug.LogWarning("stat-tracker script not found");
             }
 
-        }
-        else if (gameObject != null && collision.CompareTag("Enemy")) // activates if projectile enters the enemy hitbox 
+        }     
+        else if (collision.CompareTag("Player"))
         {
             Destroy(gameObject);
-            // actual health handling is done within the enemy object itself
-        } else if (collision.CompareTag("Player"))
-        {
-            Destroy(gameObject);
+            // play explosion animatino here 
             StatTracker.Instance.SubtractLives();
         }
     }
