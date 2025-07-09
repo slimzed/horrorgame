@@ -15,8 +15,8 @@ public class LevelLoader : MonoBehaviour
         Debug.Log("screen end called");
         SceneManager.LoadScene("GameOverScreen");
     }
-    public void LoadGame()
+    public void LoadStart()
     {
-        // SceneManager.LoadScene("SampleScene"); // change this once you rename the actual scene
+        SceneManager.LoadScene("Start Screen"); // change this once you rename the actual scene
     }
 }
