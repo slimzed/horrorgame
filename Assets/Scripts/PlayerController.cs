@@ -94,12 +94,10 @@ public class PlayerController : MonoBehaviour
 
     void HandleGameOver()
     {
-        gameObject.SetActive(false);
-
-        Invoke("Restart", 2f);
-        
-
+        StatTracker.Instance.SubtractLives(); // subtracts a life and triggers GameOver if lives == 0
+        gameObject.SetActive(false); // optional: disable player for a second
     }
+
 
     void Restart() // change this function later so that it actually does something important
     {
