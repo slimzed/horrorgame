@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 98289346}
   - component: {fileID: 98289349}
   - component: {fileID: 98289348}
+  - component: {fileID: 98289350}
   m_Layer: 0
   m_Name: PlayerHitbox
   m_TagString: Player
@@ -253,6 +254,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &98289350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98289345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f687c2cd2da4854d8f207cd93a2afe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &173651739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2112,6 +2125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 3152263367077103823, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6893412683578845011, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
