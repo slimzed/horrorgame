@@ -11,10 +11,12 @@ public class EnemyHitbox : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collider)
     {
         Destroy(collider.gameObject);
-        if (collider.CompareTag("Projectile")) // checks if the collided object is a projectile
+        Debug.Log("collided");
+        Debug.Log(health);
+        if (collider.transform.CompareTag("Projectile")) // checks if the collided object is a projectile
         {
             health--;
             if (health == 0)

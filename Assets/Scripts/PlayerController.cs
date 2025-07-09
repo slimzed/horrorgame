@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
     void Restart() // change this function later so that it actually does something important
     {
         gameObject.SetActive(true);
-        StatTracker.Instance.SetLives(100);
+        StatTracker.Instance.SetLives(10);
     }
 
 }
