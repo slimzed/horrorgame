@@ -2401,7 +2401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6584038544555686970, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
       propertyPath: m_TagString
-      value: EditorOnly
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6893412683578845011, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
       propertyPath: m_LocalPosition.x

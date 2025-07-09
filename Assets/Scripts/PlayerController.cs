@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogWarning("rightSprite is not set.");
         }
+        if (playerKnife == null)
+        {
+            Debug.LogWarning("playerKnife is not set.");
+        }
 
 
             rb = GetComponent<Rigidbody2D>();
@@ -67,8 +71,9 @@ public class PlayerController : MonoBehaviour
         {
             lastInputTime = Time.time;
             playerKnife.SetActive(true);
-            StartCoroutine(moveKnife()); // this will start a coroutine and yield any further action until the coroutine is finished 
+            StartCoroutine(moveKnife());
         }
+        
     }
     /// <summary>
     /// This function is a little confusing so I'll explain it here. Essentially what we are doing is creating a coroutine (a function that can CHOOSE when to return) and 
@@ -80,7 +85,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator moveKnife()
     {
         Vector3 startPos = new Vector3(playerKnifeTransformLocal.x, playerKnife.transform.localPosition.y, playerKnife.transform.localPosition.z);
-        Vector3 endPos = new Vector3(playerKnifeTransformLocal.x, playerKnifeTransformLocal.y + 0.5f, playerKnifeTransformLocal .z);
+        Vector3 endPos = new Vector3(playerKnifeTransformLocal.x, playerKnifeTransformLocal.y + 0.5f, playerKnifeTransformLocal.z);
         float elapsedTime = 0f;
 
         while (elapsedTime < KnifeAnimationTime)
@@ -96,7 +101,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(KnifeShownTime); // currently just made it a random value, this is how long the knife will be shown for before hiding 
 
         HideKnife();
-    }
+     }
 
     private void HideKnife()
     {
