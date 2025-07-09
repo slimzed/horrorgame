@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class EnemyHitbox : MonoBehaviour
 {
@@ -6,9 +7,11 @@ public class EnemyHitbox : MonoBehaviour
     [SerializeField] private Sprite stage2;
     [SerializeField] private Sprite stage1;
     private SpriteRenderer spriteRenderer;
+    public static event Action AddEnemy;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collider)
