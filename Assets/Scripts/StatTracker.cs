@@ -10,7 +10,7 @@ public class StatTracker : MonoBehaviour
     public static event Action OnLevelWin;
     [SerializeField] private TextMeshProUGUI livesText;
 
-    [SerializeField] private int playerLives = 5;
+    [SerializeField] private int playerLives = 100;
     [SerializeField] private int enemyHealth = 3;
     [SerializeField] private float playerMoveSpeed = 5f;
     private int Remaining = 0;
