@@ -452,7 +452,7 @@
                 {
                     "name": "",
                     "id": "66db10a0-591a-454f-b480-c0378f2d5c91",
-                    "path": "<Keyboard>/z",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerKnife: {fileID: 1830240749362054805, guid: 8fb182d9df5712942938df662bd15038, type: 3}
+  playerGrenade: {fileID: 8730060266974988297, guid: 131c6016573eb3840abd017848214397, type: 3}
   KnifeDebounceTime: 0.5
   KnifeShownTime: 1
   KnifeAnimationTime: 0.1

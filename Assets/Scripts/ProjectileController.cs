@@ -23,9 +23,8 @@ public class ProjectileController : MonoBehaviour
             Mathf.Clamp(lY, 0.5f, 2f);
         }
         rb.linearVelocityX = lY;
-            objCollider.enabled = false; // temporarily disables upon awaken
-        Invoke("EnableCollider", SpawnProtection); //xz waits 1 second before reenabling collider
-
+        objCollider.enabled = false; // temporarily disables upon awaken
+        Invoke("EnableCollider", SpawnProtection); // xz waits 1 second before reenabling collider
     }
 
     // Update is called once per frame
