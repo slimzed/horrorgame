@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject playerGrenade;
     [Tooltip("This decides how long the wait will be between successive parries")]
     [SerializeField] private float KnifeDebounceTime = 0.5f; // sets the debounce on the knife input
+    [SerializeField] private float GrenadeDebounceTime = 1f;
     [Tooltip("This decides how long the knife will be shown")]
     [SerializeField] private float KnifeShownTime = 1f;
     [Tooltip("This decides how long the animation will take for the knife.")]
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private Vector3 playerKnifeTransformLocal; // creates a vector3 that is local (in regards to) the whole player object
     private SpriteRenderer spriteRenderer;
-
+    private float lastInputGrenade;
 
 
 
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
         
         playerKnife.SetActive(false);
         lastInputTime = -KnifeDebounceTime; // just set it to a random small value so that first input will always occur :D
+        lastInputGrenade = -GrenadeDebounceTime; // same with grenade
         playerKnifeTransformLocal = playerKnife.transform.localPosition;
 
 
@@ -138,10 +140,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnThrow() // i.e. when you click z you can change that in the input map 
     {
-        Debug.Log("thrown");
-        if (StatTracker.Instance.GetGrenadeCounter() > 0)
+        if (StatTracker.Instance.GetGrenadeCounter() > 0 && Time.time - lastInputGrenade >= GrenadeDebounceTime)
         {
-            Debug.Log("Grenades available");
+            lastInputGrenade = Time.time;
             GameObject grenadeProj = Instantiate(playerGrenade.gameObject, gameObject.transform.position, Quaternion.identity);
             grenadeProj.transform.SetParent(gameObject.transform);
             StatTracker.Instance.SubtractGrenade();
