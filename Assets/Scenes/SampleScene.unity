@@ -2202,6 +2202,7 @@ MonoBehaviour:
   livesText: {fileID: 1815520686}
   playerLives: 100
   enemyHealth: 3
+  playerMoveSpeed: 5
 --- !u!4 &1850961914
 Transform:
   m_ObjectHideFlags: 0
@@ -2456,6 +2457,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366198510492826295, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402165956091357167, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6584038544555686970, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}

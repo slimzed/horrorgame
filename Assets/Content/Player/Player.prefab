@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4882686991321390522}
   - component: {fileID: 3672312948502758743}
   - component: {fileID: 4027707617712208751}
+  - component: {fileID: -2529072540894416576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -177,7 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec18a4eb36aace243a9cc49e6eda8d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   playerKnife: {fileID: 1830240749362054805, guid: 8fb182d9df5712942938df662bd15038, type: 3}
   KnifeDebounceTime: 0.5
   KnifeShownTime: 1
@@ -291,6 +291,28 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &-2529072540894416576
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196087329525806308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bf62fbab1382f040b523de28108ac70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4771957909730048687
 PrefabInstance:
   m_ObjectHideFlags: 0
