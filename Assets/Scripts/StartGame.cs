@@ -18,4 +18,8 @@ public class StartGame : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("CreditScene");
+    }
 }
