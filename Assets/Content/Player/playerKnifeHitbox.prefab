@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2533007324676831586}
   - component: {fileID: 7384196664100257201}
   m_Layer: 0
-  m_Name: playerHitbox
+  m_Name: playerKnifeHitbox
   m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
