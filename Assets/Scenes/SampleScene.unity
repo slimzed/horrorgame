@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 656995359}
   m_Layer: 0
   m_Name: w (2)
-  m_TagString: Respawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1658,7 +1658,7 @@ GameObject:
   - component: {fileID: 1535297596}
   m_Layer: 0
   m_Name: w (1)
-  m_TagString: Respawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2184,6 +2184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesText: {fileID: 1815520686}
+  playerLives: 100
+  enemyHealth: 3
 --- !u!4 &1850961914
 Transform:
   m_ObjectHideFlags: 0
@@ -2213,7 +2215,7 @@ GameObject:
   - component: {fileID: 1932484793}
   m_Layer: 0
   m_Name: w
-  m_TagString: Respawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -3,18 +3,19 @@ using System;
 
 public class EnemyHitbox : MonoBehaviour
 {
-    [SerializeField] private int itsHealth = 10;
     [SerializeField] private Sprite stage2;
     [SerializeField] private Sprite stage1;
     private SpriteRenderer spriteRenderer;
+
+    private int itsHealth;
 
     // these are actions that will be sent to StatTracker to verify the number of enemies.
     void Start() // adds to the remaining enemies, MUST BE IN START otherwise StatTracker.Instance will NOT BE FOUND 
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         StatTracker.Instance.AddRemainingEnemies();
-
-        DontDestroyOnLoad(gameObject);
+        itsHealth = StatTracker.Instance.GetHealth();
+        DontDestroyOnLoad(this.gameObject);
     }
 
 

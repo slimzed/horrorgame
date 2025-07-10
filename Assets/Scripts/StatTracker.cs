@@ -9,19 +9,21 @@ public class StatTracker : MonoBehaviour
     public static event Action OnLevelWin;
     [SerializeField] private TextMeshProUGUI livesText;
 
-    private int playerLives = 5;
+    [SerializeField] private int playerLives = 5;
+    [SerializeField] private int enemyHealth = 3;
     private int Remaining = 0;
 
 
     private void Awake()
     {
+        Debug.Log(enemyHealth);
         Instance = this;
         UpdateUI();
+        DontDestroyOnLoad(StatTracker.Instance.gameObject);
     }   
     public void AddRemainingEnemies()
     {
         Remaining++;
-        Debug.Log(Remaining);
     }
     public void SubtractRemainingEnemies()
     {
@@ -40,12 +42,17 @@ public class StatTracker : MonoBehaviour
         if (playerLives <= 0)
         {
             OnGameOver?.Invoke(); // Safely trigger Game Over event
+            enemyHealth++;
         }
     }
 
     public int GetLives()
     {
         return playerLives;
+    }
+    public int GetHealth()
+    {
+        return enemyHealth;
     }
 
     public void SetLives(int lives)

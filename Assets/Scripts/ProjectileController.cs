@@ -14,8 +14,16 @@ public class ProjectileController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         objCollider = GetComponent<Collider2D>();
         rb.linearVelocityY = -3f;
-        rb.linearVelocityX = Random.Range(-1f, 1f);
-        objCollider.enabled = false; // temporarily disables upon awaken
+        float lY = Random.Range(-2f, 2f);
+        if (lY < 0) // hardcoded clamp
+        {
+            Mathf.Clamp(lY, -2f, 0.5f);
+        } else
+        {
+            Mathf.Clamp(lY, 0.5f, 2f);
+        }
+        rb.linearVelocityX = lY;
+            objCollider.enabled = false; // temporarily disables upon awaken
         Invoke("EnableCollider", SpawnProtection); //xz waits 1 second before reenabling collider
 
     }
