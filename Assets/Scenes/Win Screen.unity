@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesText: {fileID: 0}
-  playerLives: 5
+  playerLives: 100
   enemyHealth: 3
   playerMoveSpeed: 5
 --- !u!114 &1764384960
