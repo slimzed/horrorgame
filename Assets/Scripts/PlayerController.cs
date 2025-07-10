@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private float moveSpeed;
-    [SerializeField] private GameObject playerKnife; // sets the playerknife to an actual game obejct
+    [SerializeField] private GameObject playerKnife; // sets the playerknife to an actual game object
+    [SerializeField] private GameObject playerGrenade;
     [Tooltip("This decides how long the wait will be between successive parries")]
     [SerializeField] private float KnifeDebounceTime = 0.5f; // sets the debounce on the knife input
     [Tooltip("This decides how long the knife will be shown")]
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite rightSprite;
     [SerializeField] private Sprite midSprite;
+    [SerializeField] public int GrenadeCounter = 7;
     
     
     
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private Vector3 playerKnifeTransformLocal; // creates a vector3 that is local (in regards to) the whole player object
     private SpriteRenderer spriteRenderer;
+
+
+
 
     private float lastInputTime;
     
@@ -129,7 +134,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void HandleGameOver()
+
+
+    public void OnThrow() // i.e. when you click z you can change that in the input map 
+    {
+        Debug.Log("thrown");
+        if (StatTracker.Instance.GetGrenadeCounter() > 0)
+        {
+            Debug.Log("Grenades available");
+            GameObject grenadeProj = Instantiate(playerGrenade.gameObject, gameObject.transform.position, Quaternion.identity);
+            grenadeProj.transform.SetParent(gameObject.transform);
+            StatTracker.Instance.SubtractGrenade();
+        }
+    }
+
+        void HandleGameOver()
     {
         Debug.Log("Game over...");
     }

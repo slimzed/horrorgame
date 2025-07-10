@@ -3,9 +3,7 @@ using UnityEngine;
 public class GrenadeProjectile : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float SpawnProtection = 1f;
     private Collider2D objCollider;
-    [SerializeField] private GameObject ball;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -13,16 +11,21 @@ public class GrenadeProjectile : MonoBehaviour
         objCollider = GetComponent<Collider2D>();
         rb.linearVelocityY = 5f;
         rb.linearVelocityX = 0f;
-        objCollider.enabled = true; // temporarily disables upon awaken
-        Invoke("EnableCollider", SpawnProtection); //xz waits 1 second before reenabling collider
-
+        objCollider.enabled = false; // temporarily disables upon awaken
+        Invoke("EnableCollider", 1);
     }
 
     // Update is called once per frame
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        float xPos = 2;
-        Vector3 worldPos = new Vector3(1, 1, 1);
-        GameObject obj = Instantiate(ball, worldPos, Quaternion.identity);
+       Destroy(gameObject);
+       if (collision.transform.CompareTag("Enemy"))
+        {
+            StatTracker.Instance.UpdateEnemyHealth(-1);
+        }
+    }
+    private void EnableCollider()
+    {
+        objCollider.enabled = true;
     }
 }

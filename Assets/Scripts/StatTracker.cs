@@ -9,10 +9,12 @@ public class StatTracker : MonoBehaviour
     public static event Action OnGameOver; // Event triggered when player dies
     public static event Action OnLevelWin;
     [SerializeField] private TextMeshProUGUI livesText;
+    [SerializeField] private TextMeshProUGUI grenadeText;
 
     [SerializeField] private int playerLives = 100;
     [SerializeField] private int enemyHealth = 3;
     [SerializeField] private float playerMoveSpeed = 5f;
+    [SerializeField] private int GrenadeCount = 7;
     private int Remaining = 0;
 
 
@@ -59,6 +61,15 @@ public class StatTracker : MonoBehaviour
     {
         return enemyHealth;
     }
+    public int GetGrenadeCounter()
+    {
+        return GrenadeCount;
+    }
+    public void SubtractGrenade()
+    {
+        GrenadeCount--;
+        UpdateUI();
+    }
 
 
     public void UpdateEnemyHealth(int AddedHealth)
@@ -94,6 +105,7 @@ public class StatTracker : MonoBehaviour
         if (livesText != null && playerLives > 0)
         {
             livesText.text = "Player Lives: " + playerLives;
+            grenadeText.text = "Grenades: " + GrenadeCount;
         }
     }
 
