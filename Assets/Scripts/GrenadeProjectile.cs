@@ -19,10 +19,6 @@ public class GrenadeProjectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
        Destroy(gameObject);
-       if (collision.transform.CompareTag("Enemy"))
-        {
-            StatTracker.Instance.UpdateEnemyHealth(-1);
-        }
     }
     private void EnableCollider()
     {

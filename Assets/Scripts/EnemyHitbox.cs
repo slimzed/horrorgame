@@ -26,17 +26,17 @@ public class EnemyHitbox : MonoBehaviour
         if (collider.transform.CompareTag("Projectile")) // checks if the collided object is a projectile
         {
             itsHealth--;
-            if (itsHealth <= 0)
+            if (itsHealth <= 1)
             {
                 Destroy(gameObject);
                 StatTracker.Instance.SubtractRemainingEnemies();
             }
-            else if (itsHealth <= 4)
+            else if (itsHealth <= 2)
             {
                 spriteRenderer.color = Color.red;
                 // spriteRenderer.sprite = stage2;
             }
-            else if (itsHealth <= 7)
+            else if (itsHealth <= 3)
             {
                 spriteRenderer.color = Color.yellow;
                 // spriteRenderer.sprite = stage1;
