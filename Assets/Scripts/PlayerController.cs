@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    private float moveSpeed;
     [SerializeField] private GameObject playerKnife; // sets the playerknife to an actual game obejct
     [Tooltip("This decides how long the wait will be between successive parries")]
     [SerializeField] private float KnifeDebounceTime = 0.5f; // sets the debounce on the knife input
@@ -45,12 +45,16 @@ public class PlayerController : MonoBehaviour
         }
 
 
-            rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
+        moveSpeed = StatTracker.Instance.GetMoveSpeed();
+
+
         playerInput.actions.Enable();
+        
+        
         playerKnife.SetActive(false);
         lastInputTime = -KnifeDebounceTime; // just set it to a random small value so that first input will always occur :D
-
         playerKnifeTransformLocal = playerKnife.transform.localPosition;
 
 

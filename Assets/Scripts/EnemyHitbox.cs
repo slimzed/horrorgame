@@ -13,9 +13,10 @@ public class EnemyHitbox : MonoBehaviour
     void Start() // adds to the remaining enemies, MUST BE IN START otherwise StatTracker.Instance will NOT BE FOUND 
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        StatTracker.Instance.AddRemainingEnemies();
+        
+        StatTracker.Instance.AddRemainingEnemies();    
         itsHealth = StatTracker.Instance.GetHealth();
-        DontDestroyOnLoad(this.gameObject);
+        
     }
 
 
@@ -27,9 +28,8 @@ public class EnemyHitbox : MonoBehaviour
             itsHealth--;
             if (itsHealth <= 0)
             {
-                gameObject.SetActive(false); // toggles off the hitbox when killed, could also be Destroy()
+                Destroy(gameObject);
                 StatTracker.Instance.SubtractRemainingEnemies();
-                // loads into next scene or in between screen
             }
             else if (itsHealth <= 4)
             {

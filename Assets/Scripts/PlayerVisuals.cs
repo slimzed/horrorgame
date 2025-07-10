@@ -29,6 +29,13 @@ public class PlayerVisuals : MonoBehaviour
     private IEnumerator DoFlashRedRoutine(float duration, GameObject projectileToDestroy)
     {
         spriteRenderer.color = Color.red;
+        if (projectileToDestroy != null)
+        {
+            Destroy(projectileToDestroy);
+        } else
+        {
+            Debug.LogWarning("Projectile to destroy wasn't provided in ProjectileController");
+        }
 
         yield return new WaitForSeconds(duration);
 
@@ -37,10 +44,6 @@ public class PlayerVisuals : MonoBehaviour
             spriteRenderer.color = originalColor;
         }
 
-        if (projectileToDestroy != null)
-        {
-            Destroy(projectileToDestroy); 
-        }
 
         currentFlashRoutine = null;
     }

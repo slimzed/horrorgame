@@ -33,8 +33,8 @@ public class BallSpawner : MonoBehaviour
         {
             float xPos = Random.Range(minX, maxX);
             Vector3 worldPos = new Vector3(xPos, gameObject.transform.position.y, childContainer.position.z);
-            GameObject obj = Instantiate(ball, worldPos, Quaternion.identity);
-            obj.transform.SetParent(childContainer);
+            GameObject obj = Instantiate(ball, worldPos, Quaternion.identity.normalized);
+            obj.transform.SetParent(childContainer.transform);
             if (childContainer.localScale != Vector3.one)
             {
                 Debug.LogWarning("childContainer is out of scale");
