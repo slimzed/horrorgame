@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
+    [SerializeField] GameObject ExplosionHitbox; 
+    
     private Rigidbody2D rb;
     private float SpawnProtection = 1f;
     private Collider2D objCollider;
@@ -34,7 +36,9 @@ public class ProjectileController : MonoBehaviour
         {
             if (StatTracker.Instance != null)
             {
-                StatTracker.Instance.SubtractLives();
+                GameObject hitbox = Instantiate(ExplosionHitbox, gameObject.transform.position, Quaternion.identity);
+                hitbox.transform.SetParent(gameObject.transform.parent);
+                // play animation here 
                 Destroy(gameObject);
             }
             else
