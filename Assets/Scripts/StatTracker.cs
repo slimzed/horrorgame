@@ -85,6 +85,12 @@ public class StatTracker : MonoBehaviour
     {
         playerMoveSpeed += speed;
     }
+    public void UpdateGrenadeCount(int grenadeCount)
+    {
+        Debug.Log(GrenadeCount);
+        GrenadeCount = grenadeCount;
+        Debug.Log(GrenadeCount);
+    }
 
     public void AddRemainingEnemies()
     {
