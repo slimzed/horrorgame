@@ -10,28 +10,28 @@ public class StatTracker : MonoBehaviour
     [SerializeField] private TextMeshProUGUI livesText;
 
     private int playerLives = 5;
+    private int Remaining = 0;
+
 
     private void Awake()
     {
         Instance = this;
         UpdateUI();
-        EnemyHitbox.AddEnemy += AddTargets;
-        EnemyHitbox.RemoveEnemy += RemoveTargets;
-    }
-    private int Remaining = 0;
-   
-    public void AddTargets() 
+    }   
+    public void AddRemainingEnemies()
     {
         Remaining++;
+        Debug.Log(Remaining);
     }
-    public void RemoveTargets()
+    public void SubtractRemainingEnemies()
     {
         Remaining--;
-        if (Remaining == 0) 
+        if (Remaining <= 0)
         {
             OnLevelWin?.Invoke();
         }
     }
+
     public void SubtractLives()
     {
         playerLives--;

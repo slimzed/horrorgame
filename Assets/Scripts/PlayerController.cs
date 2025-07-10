@@ -128,8 +128,6 @@ public class PlayerController : MonoBehaviour
     void HandleGameOver()
     {
         Debug.Log("Game over...");
-        gameObject.SetActive(false); // optional: disable player for a second
-
     }
 
 

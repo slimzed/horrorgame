@@ -20,10 +20,14 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Start Screen"); // change this once you rename the actual scene
     }
-
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     public void LoadTutorial()
     {
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene("TutorialScreen");
+    }
     public void LoadNextScreen()
     {
         SceneManager.LoadScene("Win Screen");

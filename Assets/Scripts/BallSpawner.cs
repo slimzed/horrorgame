@@ -32,7 +32,7 @@ public class BallSpawner : MonoBehaviour
         if (ball && shouldSpawn == 1)
         {
             float xPos = Random.Range(minX, maxX);
-            Vector3 worldPos = new Vector3(xPos, enemyHitbox.position.y, childContainer.position.z);
+            Vector3 worldPos = new Vector3(xPos, gameObject.transform.position.y, childContainer.position.z);
             GameObject obj = Instantiate(ball, worldPos, Quaternion.identity);
             obj.transform.SetParent(childContainer);
             if (childContainer.localScale != Vector3.one)

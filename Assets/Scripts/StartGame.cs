@@ -16,7 +16,6 @@ public class StartGame : MonoBehaviour
     }
     public void StartTheGame()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex + 1);
+        SceneManager.LoadScene("SampleScene");
     }
 }
