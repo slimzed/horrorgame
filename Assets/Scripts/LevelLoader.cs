@@ -6,7 +6,7 @@ public class LevelLoader : MonoBehaviour
 {
     // this functino handles ALL GLOBAL LEVEL LOADING
     private SceneManager sceneManager;
-    private int LevelSceneIndex;
+    [SerializeField] private int LevelSceneIndex;
     private void Awake()
     {
 
@@ -35,9 +35,11 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Win Screen");
         LevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(LevelSceneIndex);
     }
     public void LoadNextLevel()
     {
+        Debug.Log(LevelSceneIndex);
         SceneManager.LoadScene(LevelSceneIndex + 1);
         StatTracker.Instance.UpdateEnemyHealth(1); // adds one health to the enemies
     }
