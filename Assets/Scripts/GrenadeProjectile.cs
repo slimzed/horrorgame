@@ -18,7 +18,7 @@ public class GrenadeProjectile : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       Destroy(gameObject);
+        PlayerVisuals playerVisuals = collision.gameObject.GetComponent<PlayerVisuals>();
         // enemyhitbox actually does the checking if its grenade and removes health 
     }
     private void EnableCollider()

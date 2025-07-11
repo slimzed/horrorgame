@@ -38,7 +38,6 @@ public class ProjectileController : MonoBehaviour
             {
                 GameObject hitbox = Instantiate(ExplosionHitbox, gameObject.transform.position, Quaternion.identity);
                 hitbox.transform.SetParent(gameObject.transform.parent);
-                // play animation here 
                 Destroy(gameObject);
             }
             else

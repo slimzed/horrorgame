@@ -14,7 +14,7 @@ public class StatTracker : MonoBehaviour
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI grenadeText;
 
-    [SerializeField] private int playerLives = 100;
+    [SerializeField] private int playerLives = 5;
     [SerializeField] private int enemyHealth = 3;
     [SerializeField] private float playerMoveSpeed = 5f;
     [SerializeField] private int GrenadeCount = 7;
