@@ -3,6 +3,7 @@ using UnityEngine;
 public class GrenadeProjectile : MonoBehaviour
 {
     [SerializeField] private Sprite grenadeSprite;
+    [SerializeField] private GameObject grenadeHitboxPrefab;
     
     
     private Rigidbody2D rb;
@@ -32,6 +33,8 @@ public class GrenadeProjectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         anim.enabled = true;
+        GameObject grenadeHitbox = Instantiate(grenadeHitboxPrefab, transform.position, Quaternion.identity);
+        grenadeHitbox.transform.SetParent(gameObject.transform);
         rb.linearVelocity = Vector2.zero; // make sure that the grenaed stands still while the animation is playing.
         Invoke("AnimDisable", 0.1f);
         // enemyhitbox actually does the checking if its grenade and removes health 

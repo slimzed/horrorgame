@@ -8,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] GameObject ExplosionHitbox; 
     
     private Rigidbody2D rb;
-    private float SpawnProtection = 1f;
+    private float SpawnProtection = 0.25f;
     private Collider2D objCollider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()

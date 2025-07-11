@@ -1,3 +1,4 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,7 @@ public class LevelLoader : MonoBehaviour
 {
     // this functino handles ALL GLOBAL LEVEL LOADING
     private SceneManager sceneManager;
+    [SerializeField] private int LevelSceneIndex;
     private void Awake()
     {
 
@@ -32,10 +34,13 @@ public class LevelLoader : MonoBehaviour
     public void LoadWinScreen()
     {
         SceneManager.LoadScene("Win Screen");
+        LevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(LevelSceneIndex);
     }
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene("Level2");
+        Debug.Log(LevelSceneIndex);
+        SceneManager.LoadScene(LevelSceneIndex + 1);
         StatTracker.Instance.UpdateEnemyHealth(1); // adds one health to the enemies
     }
 }
