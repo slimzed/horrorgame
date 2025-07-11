@@ -161,4 +161,11 @@ public class PlayerController : MonoBehaviour
         StatTracker.Instance.SetLives(10);
     }
 
+
+
+    /// debug checking
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collided");
+    }
 }
