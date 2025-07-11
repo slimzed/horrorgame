@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf06708021e66b8438071479e5736b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grenadeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!95 &-4599801752321738032
 Animator:
   serializedVersion: 7
