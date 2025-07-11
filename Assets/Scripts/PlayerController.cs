@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite rightSprite;
     [SerializeField] private Sprite midSprite;
     [SerializeField] public int GrenadeCounter = 7;
-    
-    
-    
+
+
+    public Animator anim;
     
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -54,7 +54,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         moveSpeed = StatTracker.Instance.GetMoveSpeed();
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        anim.enabled = false;
 
         playerInput.actions.Enable();
         
@@ -97,6 +99,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 startPos = new Vector3(playerKnifeTransformLocal.x, playerKnife.transform.localPosition.y, playerKnife.transform.localPosition.z);
         Vector3 endPos = new Vector3(playerKnifeTransformLocal.x, playerKnifeTransformLocal.y + 0.5f, playerKnifeTransformLocal.z);
+
+        // running the animation here!
+        anim.enabled = true;
+
         float elapsedTime = 0f;
 
         while (elapsedTime < KnifeAnimationTime)
@@ -108,16 +114,20 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         playerKnife.transform.localPosition = new Vector3(playerKnifeTransformLocal.x, endPos.y, endPos.z);
+        // disabling the animation here because the knife hitbox has reached max pos 
 
         yield return new WaitForSeconds(KnifeShownTime); // currently just made it a random value, this is how long the knife will be shown for before hiding 
+        anim.enabled = false;
 
         HideKnife();
      }
 
     private void HideKnife()
     {
+        anim.enabled = false;
         playerKnife.SetActive(false);
         playerKnife.transform.localPosition = playerKnifeTransformLocal; // makes sure that the knife 
+        anim.SetBool("isRunning", false);
     }
 
 
