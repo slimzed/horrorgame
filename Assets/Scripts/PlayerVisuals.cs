@@ -11,7 +11,10 @@ public class PlayerVisuals : MonoBehaviour
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null) originalColor = spriteRenderer.color;
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
     }
 
     public void FlashRedTemporarily(float duration, GameObject projectileToDestroy = null)
@@ -26,15 +29,12 @@ public class PlayerVisuals : MonoBehaviour
         currentFlashRoutine = StartCoroutine(DoFlashRedRoutine(duration, projectileToDestroy));
     }
 
-    private IEnumerator DoFlashRedRoutine(float duration, GameObject projectileToDestroy)
+    private IEnumerator DoFlashRedRoutine(float duration, GameObject projectileToDestroy) // the actual coroutine that does the flash red 
     {
         spriteRenderer.color = Color.red;
         if (projectileToDestroy != null)
         {
             Destroy(projectileToDestroy);
-        } else
-        {
-            Debug.LogWarning("Projectile to destroy wasn't provided in ProjectileController");
         }
 
         yield return new WaitForSeconds(duration);

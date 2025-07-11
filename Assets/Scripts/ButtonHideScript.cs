@@ -13,6 +13,6 @@ public class ButtonBehaviorScript : MonoBehaviour
     }
     public void OnClickGrenades()
     {
-        StatTracker.Instance.UpdateGrenadeCount(7);
+        StatTracker.Instance.UpdateGrenadeCount(7); // this sets the grenade count back to 7 
     }
 }

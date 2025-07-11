@@ -137,7 +137,6 @@ public class StatTracker : MonoBehaviour
 
     private void UpdateUI()
     {
-        Debug.Log("updatedUI");
         if (livesText != null && playerLives > 0)
         {
             livesText.text = "Player Lives: " + playerLives;
