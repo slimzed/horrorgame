@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 19a9b42c60093294b9fb26a0611f8f78
+guid: 063519677fbe7cb4986f101ee72598a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2799599116420900268
-    second: lives_icon-removebg-preview_0
-  - first:
-      213: 2408276903934928644
-    second: lives_icon-removebg-preview_1
+      213: -5891610472529939921
+    second: life_icoln_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lives_icon-removebg-preview_0
+      name: life_icoln_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 167
-        width: 6
-        height: 13
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca5e3cf309c2ad620800000000000000
-      internalID: 2799599116420900268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lives_icon-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 17
-        width: 118
-        height: 272
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 407a1d3a51beb6120800000000000000
-      internalID: 2408276903934928644
+      spriteID: f22b1e58d7bcc3ea0800000000000000
+      internalID: -5891610472529939921
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      lives_icon-removebg-preview_0: 2799599116420900268
-      lives_icon-removebg-preview_1: 2408276903934928644
+      life_icoln_0: -5891610472529939921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
