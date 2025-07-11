@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Knife
   - Explode
+  - PlayerLivesText
+  - GrenadeText
   layers:
   - Default
   - TransparentFX

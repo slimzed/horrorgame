@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Net;
+using System.Linq.Expressions;
 
 public class StatTracker : MonoBehaviour
 {
@@ -30,6 +33,32 @@ public class StatTracker : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         UpdateUI();
+
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += HandleSceneLoad;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= HandleSceneLoad;
+    }
+
+
+    private void HandleSceneLoad(Scene scene, LoadSceneMode mode) // searches for the text components every time the scene is reloaded, otherwise the StatTracker cannot directly access components
+    {
+        if (scene.name == "SampleScene") // first checks if we are in the sample scene, otherwise there is no point in grabbing the text elements
+        {
+            if (!livesText)
+            {
+                livesText = GameObject.FindWithTag("PlayerLivesText").GetComponent<TextMeshProUGUI>(); // i gave it the tag PlayerLivesText
+            }
+            if (!grenadeText)
+            {
+                grenadeText = GameObject.FindWithTag("GrenadeText").GetComponent<TextMeshProUGUI>(); // same here
+            }
+            UpdateUI();
+        }
     }
     public int GetLives()
     {
@@ -108,6 +137,7 @@ public class StatTracker : MonoBehaviour
 
     private void UpdateUI()
     {
+        Debug.Log("updatedUI");
         if (livesText != null && playerLives > 0)
         {
             livesText.text = "Player Lives: " + playerLives;

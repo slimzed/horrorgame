@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7108796100164423472}
   - component: {fileID: -2824741680888132408}
   m_Layer: 5
-  m_Name: ImproveMoveSpeedButton
+  m_Name: ResetGrenadesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

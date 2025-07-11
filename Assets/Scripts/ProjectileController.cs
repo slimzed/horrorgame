@@ -16,13 +16,13 @@ public class ProjectileController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         objCollider = GetComponent<Collider2D>();
         rb.linearVelocityY = -3f;
-        float lY = Random.Range(-2f, 2f);
+        float lY = Random.Range(-4f, 4f);
         if (lY < 0) // hardcoded clamp
         {
-            Mathf.Clamp(lY, -2f, 0.5f);
+            Mathf.Clamp(lY, -4f, 0.5f);
         } else
         {
-            Mathf.Clamp(lY, 0.5f, 2f);
+            Mathf.Clamp(lY, 0.5f, 4f);
         }
         rb.linearVelocityX = lY;
         objCollider.enabled = false; // temporarily disables upon awaken

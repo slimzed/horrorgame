@@ -7,7 +7,7 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] private GameObject ball;
     [SerializeField] private Transform childContainer;
     [SerializeField] private Transform enemyHitbox;
-    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private float initialDelay = 1f;
 
     private SpriteRenderer spriteRenderer;
@@ -35,7 +35,9 @@ public class BallSpawner : MonoBehaviour
             Vector3 worldPos = new Vector3(xPos, gameObject.transform.position.y, childContainer.position.z);
             GameObject obj = Instantiate(ball, worldPos, Quaternion.identity.normalized);
             obj.transform.SetParent(childContainer.transform);
-            if (childContainer.localScale != Vector3.one)
+            
+            
+            if (childContainer.localScale != Vector3.one) // if the scale on childcontainer > 1, then the objects spawn weirdly so this is just a check for that 
             {
                 Debug.LogWarning("childContainer is out of scale");
             }

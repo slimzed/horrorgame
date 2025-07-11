@@ -7,4 +7,12 @@ public class ButtonBehaviorScript : MonoBehaviour
     {
         transform.parent.gameObject.SetActive(false);
     }
+    public void OnClickLives()
+    {
+        StatTracker.Instance.UpdatePlayerLives(3);
+    }
+    public void OnClickGrenades()
+    {
+        StatTracker.Instance.UpdateGrenadeCount(7);
+    }
 }
