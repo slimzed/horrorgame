@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  grenadeHitboxPrefab: {fileID: 2028394726142021416, guid: 5355a94b1d4b3ad4d83d53ececb28b09, type: 3}
 --- !u!95 &-4599801752321738032
 Animator:
   serializedVersion: 7
