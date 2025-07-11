@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float KnifeShownTime = 1f;
     [Tooltip("This decides how long the animation will take for the knife.")]
     [SerializeField] private float KnifeAnimationTime = 0.1f;
-    [SerializeField] private Sprite leftSprite;
-    [SerializeField] private Sprite rightSprite;
-    [SerializeField] private Sprite midSprite;
     [SerializeField] public int GrenadeCounter = 7;
 
 
@@ -37,18 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        if (leftSprite == null)
-        {
-            Debug.LogWarning("leftSprite is not set.");
-        }
-        if (rightSprite == null)
-        {
-            Debug.LogWarning("rightSprite is not set.");
-        }
-        if (playerKnife == null)
-        {
-            Debug.LogWarning("playerKnife is not set.");
-        }
+
 
 
         rb = GetComponent<Rigidbody2D>();
@@ -56,7 +42,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = StatTracker.Instance.GetMoveSpeed();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        anim.enabled = false;
 
         playerInput.actions.Enable();
         
@@ -76,6 +61,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
+
+        if (Mathf.Abs(moveInput.x) > 0.01)
+        {
+            anim.SetBool("isRunning", true);
+        } else
+        {
+            anim.SetBool("isRunning", false);
+        }
         
     }
     public void OnAttack() // function called when LeftClick is pressed.
@@ -84,6 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             lastInputTime = Time.time;
             playerKnife.SetActive(true);
+            anim.SetBool("isSwinging", true);
             StartCoroutine(moveKnife());
         }
         
@@ -101,7 +95,6 @@ public class PlayerController : MonoBehaviour
         Vector3 endPos = new Vector3(playerKnifeTransformLocal.x, playerKnifeTransformLocal.y + 0.5f, playerKnifeTransformLocal.z);
 
         // running the animation here!
-        anim.enabled = true;
 
         float elapsedTime = 0f;
 
@@ -117,16 +110,16 @@ public class PlayerController : MonoBehaviour
         // disabling the animation here because the knife hitbox has reached max pos 
 
         yield return new WaitForSeconds(KnifeShownTime); // currently just made it a random value, this is how long the knife will be shown for before hiding 
-        anim.enabled = false;
 
         HideKnife();
      }
 
     private void HideKnife()
     {
-        anim.enabled = false;
         playerKnife.SetActive(false);
         playerKnife.transform.localPosition = playerKnifeTransformLocal; // makes sure that the knife 
+        Debug.Log("setting is swinging false");
+        anim.SetBool("isSwinging", false);
         anim.SetBool("isRunning", false);
     }
 
@@ -134,15 +127,12 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue input)
     {
         moveInput = input.Get<Vector2>();
-        if (leftSprite != null  && moveInput.x > 0)
+        if (moveInput.x > 0)
         {
-            spriteRenderer.sprite = leftSprite;
-        } else if (rightSprite != null && moveInput.x < 0)
+            spriteRenderer.flipX = false;
+        } else if (moveInput.x < 0)
         {
-            spriteRenderer.sprite = rightSprite;
-        } else if (midSprite != null && moveInput.x == 0)
-        {
-            spriteRenderer.sprite = midSprite;
+            spriteRenderer.flipX = true;
         }
     }
 
