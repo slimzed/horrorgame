@@ -58,6 +58,8 @@ public class StatTracker : MonoBehaviour
             }
             UpdateUI();
     }
+
+
     public int GetLives()
     {
         return playerLives;
