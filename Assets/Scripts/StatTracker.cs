@@ -47,8 +47,7 @@ public class StatTracker : MonoBehaviour
 
     private void HandleSceneLoad(Scene scene, LoadSceneMode mode) // searches for the text components every time the scene is reloaded, otherwise the StatTracker cannot directly access components
     {
-        if (scene.name == "SampleScene") // first checks if we are in the sample scene, otherwise there is no point in grabbing the text elements
-        {
+
             if (!livesText)
             {
                 livesText = GameObject.FindWithTag("PlayerLivesText").GetComponent<TextMeshProUGUI>(); // i gave it the tag PlayerLivesText
@@ -58,7 +57,6 @@ public class StatTracker : MonoBehaviour
                 grenadeText = GameObject.FindWithTag("GrenadeText").GetComponent<TextMeshProUGUI>(); // same here
             }
             UpdateUI();
-        }
     }
     public int GetLives()
     {
