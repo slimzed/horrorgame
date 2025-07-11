@@ -14,4 +14,8 @@ public class ButtonLevelLoader : MonoBehaviour
     {
         levelLoader.LoadNextLevel();
     }
+    public void OnClickMainMenu()
+    {
+        levelLoader.LoadStart();
+    }
 }

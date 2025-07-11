@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,11 +34,9 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Win Screen");
         LevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(LevelSceneIndex);
     }
     public void LoadNextLevel()
     {
-        Debug.Log(LevelSceneIndex);
         SceneManager.LoadScene(LevelSceneIndex + 1);
         StatTracker.Instance.UpdateEnemyHealth(1); // adds one health to the enemies
     }
