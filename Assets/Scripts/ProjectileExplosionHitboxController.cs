@@ -13,7 +13,7 @@ public class ProjectileExplosionHitboxController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             StatTracker.Instance.SubtractLives();
-            PlayerVisuals playerVisuals = collision.gameObject.GetComponent<PlayerVisuals>();
+            PlayerVisuals playerVisuals = collision.gameObject.transform.parent.gameObject.GetComponent<PlayerVisuals>();
             playerVisuals.FlashRedTemporarily(0.25f, gameObject);
         }
     }
