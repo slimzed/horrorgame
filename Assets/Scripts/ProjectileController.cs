@@ -48,7 +48,7 @@ public class ProjectileController : MonoBehaviour
         }     
         else if (collision.CompareTag("Player"))
         {
-            PlayerVisuals playerVisuals = collision.gameObject.GetComponent<PlayerVisuals>();
+            PlayerVisuals playerVisuals = collision.gameObject.transform.parent.gameObject.GetComponent<PlayerVisuals>(); // really lengthy way to track the actual player object
             playerVisuals.FlashRedTemporarily(0.25f, gameObject);
             StatTracker.Instance.SubtractLives();
         }
