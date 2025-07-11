@@ -35,7 +35,7 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level2");
         StatTracker.Instance.UpdateEnemyHealth(1); // adds one health to the enemies
     }
 }
