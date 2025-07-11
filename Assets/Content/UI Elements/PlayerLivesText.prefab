@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7915649411233407953}
   - component: {fileID: 4901318697813090482}
   - component: {fileID: 1697618828606130207}
+  - component: {fileID: 3398835242409724642}
   m_Layer: 5
   m_Name: PlayerLivesText
   m_TagString: Untagged
@@ -34,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 576, y: -365}
+  m_AnchoredPosition: {x: -691, y: -434}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4901318697813090482
@@ -136,3 +137,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3398835242409724642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018645459719278793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8d42a11132a5d4ba3ba64125ef5932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeIcon: {fileID: 0}

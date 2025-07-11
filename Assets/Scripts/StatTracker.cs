@@ -139,7 +139,7 @@ public class StatTracker : MonoBehaviour
     {
         if (livesText != null && playerLives > 0)
         {
-            livesText.text = "Player Lives: " + playerLives;
+            livesText.text = "Lives: " + playerLives;
             grenadeText.text = "Grenades: " + GrenadeCount;
         }
     }

@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class LifeIcon : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject lifeIcon;
+    private int lives;
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        lives = StatTracker.Instance.GetHealth(); 
+        for (int i=0; i<lives; i++)
+        {
+            GameObject icon = Instantiate(lifeIcon, new Vector3(transform.position.x + 15*i, transform.position.y, transform.position.z), Quaternion.identity);
+            lifeIcon.transform.SetParent(icon.transform, false);
+        }
     }
 }
