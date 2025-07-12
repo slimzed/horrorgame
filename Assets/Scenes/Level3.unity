@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2397111378395018177, guid: 2651494d8b1ec7d4ab7585824325d942, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2743513748992061440, guid: 2651494d8b1ec7d4ab7585824325d942, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.64318967
@@ -1244,6 +1248,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1754726598}
     m_Modifications:
+    - target: {fileID: 2397111378395018177, guid: 2651494d8b1ec7d4ab7585824325d942, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2743513748992061440, guid: 2651494d8b1ec7d4ab7585824325d942, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.06
@@ -1507,7 +1515,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -25
   m_TargetDisplay: 0
 --- !u!224 &1278613189
 RectTransform:
@@ -1937,6 +1945,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1754726598}
     m_Modifications:
+    - target: {fileID: 2397111378395018177, guid: 2651494d8b1ec7d4ab7585824325d942, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2743513748992061440, guid: 2651494d8b1ec7d4ab7585824325d942, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.17
