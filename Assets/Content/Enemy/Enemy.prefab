@@ -177,3 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage2: {fileID: 0}
   stage1: {fileID: 0}
+  EnemyHitSfx: {fileID: 8300000, guid: 53a5aeb80fef3c64d8bca1bd501df3f9, type: 3}

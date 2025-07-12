@@ -212,5 +212,6 @@ MonoBehaviour:
   enemyHitbox: {fileID: 0}
   spawnInterval: 2
   initialDelay: 1
+  mouthSpawn: {fileID: 8300000, guid: a7736c82e2e26bb438077e7ce7813f63, type: 3}
   minX: 0
   maxX: 0

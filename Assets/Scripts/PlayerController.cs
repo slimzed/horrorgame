@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -16,9 +17,13 @@ public class PlayerController : MonoBehaviour
     [Tooltip("This decides how long the animation will take for the knife.")]
     [SerializeField] private float KnifeAnimationTime = 0.1f;
     [SerializeField] public int GrenadeCounter = 7;
+    [SerializeField] private AudioClip knifeSfx;
+    [SerializeField] private AudioClip grenadeSfx;
 
 
     public Animator anim;
+    private GameObject ScriptCalls;
+    private AudioSource source;
     
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -42,6 +47,8 @@ public class PlayerController : MonoBehaviour
         moveSpeed = StatTracker.Instance.GetMoveSpeed();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        ScriptCalls = GameObject.Find("ScriptCalls");
+        source = ScriptCalls.GetComponent<AudioSource>();
 
         playerInput.actions.Enable();
         
@@ -77,7 +84,11 @@ public class PlayerController : MonoBehaviour
         {
             lastInputTime = Time.time;
             playerKnife.SetActive(true);
+
             anim.SetBool("isSwinging", true);
+            source.clip = knifeSfx;
+            source.Play();
+
             StartCoroutine(moveKnife());
         }
         
@@ -145,6 +156,11 @@ public class PlayerController : MonoBehaviour
             lastInputGrenade = Time.time;
             GameObject grenadeProj = Instantiate(playerGrenade.gameObject, gameObject.transform.position, Quaternion.identity);
             grenadeProj.transform.SetParent(gameObject.transform);
+
+            source.clip = grenadeSfx;
+            source.Play();
+
+
             StatTracker.Instance.SubtractGrenade();
         }
     }

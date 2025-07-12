@@ -131,7 +131,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.57, y: 21.289394}
+    oldSize: {x: 0.757, y: 2.1289394}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -184,10 +184,10 @@ MonoBehaviour:
   GrenadeDebounceTime: 1
   KnifeShownTime: 1
   KnifeAnimationTime: 0.1
-  leftSprite: {fileID: 8478158447252275878, guid: e07a8608405884946b1f2629b2e7c1bf, type: 3}
-  rightSprite: {fileID: -4053508858313808026, guid: 9d974a01401fb2f459727f19500b0d6a, type: 3}
-  midSprite: {fileID: -3993740617083499810, guid: c7600dbf819cc30488c93fb50c3ca3af, type: 3}
   GrenadeCounter: 7
+  knifeSfx: {fileID: 8300000, guid: 4cfbed56223729740a20e6e6fd6f95f6, type: 3}
+  grenadeSfx: {fileID: 8300000, guid: 9ef536198f1552c4dac86abdb2ad8cc7, type: 3}
+  anim: {fileID: 0}
 --- !u!114 &4027707617712208751
 MonoBehaviour:
   m_ObjectHideFlags: 0

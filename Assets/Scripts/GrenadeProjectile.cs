@@ -4,7 +4,11 @@ public class GrenadeProjectile : MonoBehaviour
 {
     [SerializeField] private Sprite grenadeSprite;
     [SerializeField] private GameObject grenadeHitboxPrefab;
-    
+    [SerializeField] private AudioClip explosionSfx;
+
+    private GameObject audioManager;
+    private AudioSource source;
+
     
     private Rigidbody2D rb;
     private Collider2D objCollider;
@@ -17,6 +21,8 @@ public class GrenadeProjectile : MonoBehaviour
         objCollider = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = GameObject.Find("ScriptCalls");
+        source = audioManager.GetComponent<AudioSource>();
 
 
         rb.linearVelocityY = 5f;
@@ -36,6 +42,12 @@ public class GrenadeProjectile : MonoBehaviour
         GameObject grenadeHitbox = Instantiate(grenadeHitboxPrefab, transform.position, Quaternion.identity);
         grenadeHitbox.transform.SetParent(gameObject.transform);
         rb.linearVelocity = Vector2.zero; // make sure that the grenaed stands still while the animation is playing.
+
+        source.clip = explosionSfx;
+        source.Play();
+
+
+
         Invoke("AnimDisable", 0.1f);
         // enemyhitbox actually does the checking if its grenade and removes health 
     }

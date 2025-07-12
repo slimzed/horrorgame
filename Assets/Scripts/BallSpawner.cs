@@ -9,8 +9,11 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] private Transform enemyHitbox;
     [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private float initialDelay = 1f;
+    [SerializeField] private AudioClip mouthSpawn;
 
     private SpriteRenderer spriteRenderer;
+    private GameObject audioManager;
+    private AudioSource source;
 
     // code that finds the maximum and minimum x values of the roof
     [SerializeField] private float minX;
@@ -19,6 +22,10 @@ public class BallSpawner : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = GameObject.Find("ScriptCalls");
+        source = audioManager.GetComponent<AudioSource>();
+
+
         minX = spriteRenderer.bounds.min.x + 1f;
         maxX = spriteRenderer.bounds.max.x - 1f;
         
@@ -31,6 +38,10 @@ public class BallSpawner : MonoBehaviour
         int shouldSpawn = Random.Range(0, 2); // randomly picks a number from 0 to 1 as to whether the ball spawner should spawn an objects
         if (ball && shouldSpawn == 1)
         {
+            source.clip = mouthSpawn;
+            source.Play(); 
+
+
             float xPos = Random.Range(minX, maxX);
             Vector3 worldPos = new Vector3(xPos, gameObject.transform.position.y, childContainer.position.z);
             GameObject obj = Instantiate(ball, worldPos, Quaternion.identity.normalized);

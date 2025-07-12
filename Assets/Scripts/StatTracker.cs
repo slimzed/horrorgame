@@ -94,6 +94,10 @@ public class StatTracker : MonoBehaviour
     {
         return GrenadeCount;
     }
+    public void SetGrenades(int grenades)
+    {
+        GrenadeCount = grenades;
+    }
     public void SubtractGrenade()
     {
         GrenadeCount--;
@@ -104,6 +108,10 @@ public class StatTracker : MonoBehaviour
     public void UpdateEnemyHealth(int AddedHealth)
     {
         enemyHealth+=AddedHealth;
+    }
+    public void SetEnemyHealth(int health)
+    {
+        enemyHealth = health;
     }
 
     public float GetMoveSpeed()

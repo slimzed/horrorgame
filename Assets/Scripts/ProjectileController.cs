@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    [SerializeField] GameObject ExplosionHitbox; 
+    [SerializeField] GameObject ExplosionHitbox;
+    [SerializeField] AudioClip explosionSfx;
+    [SerializeField] AudioClip hitSfx;
+
+    private GameObject audioManager;
+    private AudioSource source;
     
     private Rigidbody2D rb;
     private float SpawnProtection = 0.25f;
@@ -15,6 +20,11 @@ public class ProjectileController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         objCollider = GetComponent<Collider2D>();
+        audioManager = GameObject.Find("ScriptCalls");
+        source = audioManager.GetComponent<AudioSource>();
+
+
+
         rb.linearVelocityY = -3f;
         float lY = Random.Range(-4f, 4f);
         if (lY < 0) // hardcoded clamp
@@ -38,6 +48,10 @@ public class ProjectileController : MonoBehaviour
             {
                 GameObject hitbox = Instantiate(ExplosionHitbox, gameObject.transform.position, Quaternion.identity);
                 hitbox.transform.SetParent(gameObject.transform.parent);
+
+                source.clip = explosionSfx;
+                source.Play();
+
                 Destroy(gameObject);
             }
             else
@@ -49,6 +63,10 @@ public class ProjectileController : MonoBehaviour
         else if (collision.CompareTag("Player"))
         {
             PlayerVisuals playerVisuals = collision.gameObject.transform.parent.gameObject.GetComponent<PlayerVisuals>(); // really lengthy way to track the actual player object
+
+            source.clip = hitSfx;
+            source.Play();
+
             playerVisuals.FlashRedTemporarily(0.25f, gameObject);
             StatTracker.Instance.SubtractLives();
         }

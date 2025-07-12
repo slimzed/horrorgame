@@ -21,6 +21,11 @@ public class LevelLoader : MonoBehaviour
     public void LoadStart()
     {
         SceneManager.LoadScene("Start Screen"); // change this once you rename the actual scene
+        
+        
+        StatTracker.Instance.SetLives(5);
+        StatTracker.Instance.SetGrenades(7);
+        StatTracker.Instance.SetEnemyHealth(3);
     }
     public void LoadGame()
     {

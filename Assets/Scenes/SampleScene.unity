@@ -2115,6 +2115,10 @@ PrefabInstance:
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3672312948502758743, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
+      propertyPath: knifeSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 4cfbed56223729740a20e6e6fd6f95f6, type: 3}
+    - target: {fileID: 3672312948502758743, guid: 037c6bb9fb9c128409910683d0ca5883, type: 3}
       propertyPath: playerKnife
       value: 
       objectReference: {fileID: 911435257}

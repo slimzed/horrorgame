@@ -176,3 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionHitbox: {fileID: 1890659928020833495, guid: 58e895db55f4d6543ae976ac1d18ac75, type: 3}
+  explosionSfx: {fileID: 8300000, guid: 75f78bc23dc6a594f9792fb158e05f3d, type: 3}
+  hitSfx: {fileID: 8300000, guid: 2744c1566c5830143bad7a65cd472957, type: 3}
