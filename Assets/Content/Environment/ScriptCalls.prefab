@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelSceneIndex: 0
+  sfx: {fileID: 8300000, guid: 6a6c8a0b20e4e7e4f8635e9730e41db6, type: 3}
 --- !u!114 &5506659190700823865
 MonoBehaviour:
   m_ObjectHideFlags: 0
