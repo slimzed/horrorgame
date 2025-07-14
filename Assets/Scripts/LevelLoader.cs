@@ -51,7 +51,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadWinScreen()
     {
         SceneManager.LoadScene("Win Screen");
-        source.clip = sfx;
+        source.clip = sfx; // this will give a compiler error every time new screen opens but it works so whatever 
         source.Play();
         LevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }

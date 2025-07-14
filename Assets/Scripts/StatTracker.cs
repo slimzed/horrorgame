@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Net;
 using System.Linq.Expressions;
+using System.Collections.Generic;
 
 public class StatTracker : MonoBehaviour
 {
@@ -13,12 +14,18 @@ public class StatTracker : MonoBehaviour
     public static event Action OnLevelWin;
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI grenadeText;
+    [SerializeField] private GameObject lifeIcon;
+    [SerializeField] private GameObject grenadeIcon;
 
     [SerializeField] private int playerLives = 5;
     [SerializeField] private int enemyHealth = 3;
     [SerializeField] private float playerMoveSpeed = 5f;
     [SerializeField] private int GrenadeCount = 7;
+    
+    
     private int Remaining = 0;
+    private List<GameObject> currentLifeIcons = new List<GameObject>(); // creates a list of life icons that hold the actual life objects
+    private List<GameObject> currentGrenadeIcons = new List<GameObject>(); // creates a list of gameobjects that hold the grenade counter
 
 
     private void Awake()
@@ -73,6 +80,7 @@ public class StatTracker : MonoBehaviour
     public void UpdatePlayerLives(int AddedLives)
     {
         playerLives += AddedLives;
+        UpdateUI();
     }
 
     public void SubtractLives()
@@ -124,9 +132,7 @@ public class StatTracker : MonoBehaviour
     }
     public void UpdateGrenadeCount(int grenadeCount)
     {
-        Debug.Log(GrenadeCount);
         GrenadeCount = grenadeCount;
-        Debug.Log(GrenadeCount);
     }
 
     public void AddRemainingEnemies()
@@ -147,8 +153,12 @@ public class StatTracker : MonoBehaviour
     {
         if (livesText != null && playerLives > 0)
         {
-            livesText.text = "Lives: " + playerLives;
-            grenadeText.text = "Grenades: " + GrenadeCount;
+            livesText.text = "Lives: " + playerLives.ToString();
+
+        }
+        if (grenadeText != null && GrenadeCount > 0)
+        {
+            grenadeText.text = "Grenades: " + GrenadeCount.ToString();
         }
     }
 

@@ -60,8 +60,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e486eb6dae7300a4aa28cbeba9ae1a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesText: {fileID: 103023086770774543, guid: ed523f96fe10fb142b0b540d2425666e, type: 3}
-  grenadeText: {fileID: 7344821826845771802, guid: 61656f2a1867f464b936167083644042, type: 3}
+  livesText: {fileID: 1697618828606130207, guid: 31211e78062c9144b94091ea4df2c57f, type: 3}
+  grenadeText: {fileID: 1973939215343567109, guid: ed523f96fe10fb142b0b540d2425666e, type: 3}
+  lifeIcon: {fileID: 4141873410936158336, guid: a7026fad9409a494cb057719067e60c0, type: 3}
+  grenadeIcon: {fileID: 0}
   playerLives: 100
   enemyHealth: 3
   playerMoveSpeed: 5

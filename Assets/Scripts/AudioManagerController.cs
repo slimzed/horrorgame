@@ -6,9 +6,6 @@ public class AudioManagerController : MonoBehaviour
 
 
     public AudioClip background;
-    public AudioClip knifeHit;
-    public AudioClip monsterHit;
-    public AudioClip grenadeThrow;
 
 
 
