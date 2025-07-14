@@ -186,7 +186,7 @@ MonoBehaviour:
   KnifeAnimationTime: 0.1
   GrenadeCounter: 7
   knifeSfx: {fileID: 8300000, guid: 4cfbed56223729740a20e6e6fd6f95f6, type: 3}
-  grenadeSfx: {fileID: 8300000, guid: 9ef536198f1552c4dac86abdb2ad8cc7, type: 3}
+  grenadeSfx: {fileID: 8300000, guid: 1c14b0b233ca5684d8b1f92e6d175ff0, type: 3}
   anim: {fileID: 0}
 --- !u!114 &4027707617712208751
 MonoBehaviour:

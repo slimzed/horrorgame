@@ -6,8 +6,21 @@ public class LevelLoader : MonoBehaviour
     // this functino handles ALL GLOBAL LEVEL LOADING
     private SceneManager sceneManager;
     [SerializeField] private int LevelSceneIndex;
+    [SerializeField] private AudioClip sfx;
+
+
+
+    private AudioSource[] audioSources;
+    private AudioSource source;
     private void Awake()
     {
+
+        audioSources = GetComponents<AudioSource>();
+        if (audioSources != null)
+        {
+            source = audioSources[0]; 
+        }
+        
 
         StatTracker.OnGameOver += LoadEndScreen; // ties the end screen loading to the OnGameOver event in StatTracker
         StatTracker.OnLevelWin += LoadWinScreen; // ties the end screen loading to the OnGameOver event in StatTracker
@@ -38,6 +51,8 @@ public class LevelLoader : MonoBehaviour
     public void LoadWinScreen()
     {
         SceneManager.LoadScene("Win Screen");
+        source.clip = sfx;
+        source.Play();
         LevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     public void LoadNextLevel()
